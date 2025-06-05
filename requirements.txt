@@ -3,4 +3,5 @@ pandas
 psycopg
 psycopg-binary
 python-dotenv
+plotly
 
