@@ -71,7 +71,7 @@ conn.close()
 df["date"] = pd.to_datetime(df["date"])
 
 # Sidebar dropdown
-st.sidebar.title("📌 Choose Data to Display")
+st.sidebar.title("Choose Data to Display")
 selected = st.sidebar.multiselect("Select variables:", ["open", "close", "volume"], default=["close"])
 
 # Plotting
@@ -89,7 +89,7 @@ for col in selected:
 
 # Layout
 fig.update_layout(
-    title="📈 Crypto Prices Over Time",
+    title="Crypto Prices Over Time",
     xaxis=dict(title="Date"),
     yaxis=dict(title="Price (€)"),
     yaxis2=dict(title="Volume (BTC)", overlaying="y", side="right"),
@@ -145,7 +145,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 # 💰 Investment Simulation
-st.sidebar.subheader("💸 Investment Simulator")
+st.sidebar.subheader("Investment Simulator")
 start_date = st.sidebar.date_input("Choose start date", value=df['date'].min().date())
 investment_amount = st.sidebar.number_input("Investment amount (€)", min_value=100, value=1000)
 
