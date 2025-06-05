@@ -132,3 +132,12 @@ df['MA_30'] = df['close'].rolling(window=30).mean()
 
 st.line_chart(df.set_index('date')[['close', 'MA_7', 'MA_30']])
 
+
+
+
+# 📉 Daily % Change
+df['pct_change'] = df['close'].pct_change() * 100
+
+import plotly.express as px
+fig_pct = px.line(df, x='date', y='pct_change', title='📉 Daily % Change (%)')
+st.plotly_chart(fig_pct, use_container_width=True)
