@@ -98,3 +98,30 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+
+
+# 🕯️ Candlestick Chart (Open-High-Low-Close)
+import plotly.graph_objects as go
+
+fig_candle = go.Figure(data=[
+    go.Candlestick(
+        x=df['date'],
+        open=df['open'],
+        high=df['high'],
+        low=df['low'],
+        close=df['close'],
+        name="OHLC"
+    )
+])
+fig_candle.update_layout(
+    title="🕯️ Candlestick Chart (OHLC)",
+    xaxis_title="Date",
+    yaxis_title="Price (€)",
+    height=500
+)
+st.plotly_chart(fig_candle, use_container_width=True)
+
