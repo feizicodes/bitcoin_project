@@ -125,3 +125,10 @@ fig_candle.update_layout(
 )
 st.plotly_chart(fig_candle, use_container_width=True)
 
+
+# 📊 Moving Averages (7 and 30 days)
+df['MA_7'] = df['close'].rolling(window=7).mean()
+df['MA_30'] = df['close'].rolling(window=30).mean()
+
+st.line_chart(df.set_index('date')[['close', 'MA_7', 'MA_30']])
+
