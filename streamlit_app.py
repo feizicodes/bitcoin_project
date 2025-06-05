@@ -60,7 +60,15 @@ conn.close()
 st.title("📈 Crypto Prices Dashboard")
 
 # Load data from database or CSV
-df = pd.read_csv("crypto_prices.csv")
+load_dotenv()
+conn = psycopg.connect(os.getenv("DBCONN"))
+cur = conn.cursor()
+cur.execute("SELECT * FROM crypto_prices ORDER BY date")
+rows = cur.fetchall()
+columns = [desc.name for desc in cur.description]
+df = pd.DataFrame(rows, columns=columns)
+conn.close()
+
 df["date"] = pd.to_datetime(df["date"])
 df = df.sort_values("date")
 
