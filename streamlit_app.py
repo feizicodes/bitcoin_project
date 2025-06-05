@@ -4,6 +4,9 @@ import psycopg
 from dotenv import load_dotenv
 import os
 
+# Streamlit app for Crypto Prices Dashboard
+st.set_page_config(page_title="📊 Crypto Dashboard", layout="wide")
+
 # Load DB connection from .env
 load_dotenv()
 dbconn = os.getenv("DBCONN")
@@ -50,10 +53,9 @@ conn.close()
 # Requirements: streamlit, pandas, psycopg, python-dotenv
 
 
-import streamlit as st
-import pandas as pd
 
-st.set_page_config(page_title="📊 Crypto Dashboard", layout="wide")
+
+
 
 st.title("📈 Crypto Prices Dashboard")
 
