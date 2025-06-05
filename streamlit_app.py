@@ -141,3 +141,19 @@ df['pct_change'] = df['close'].pct_change() * 100
 import plotly.express as px
 fig_pct = px.line(df, x='date', y='pct_change', title='📉 Daily % Change (%)')
 st.plotly_chart(fig_pct, use_container_width=True)
+
+
+
+# 💰 Investment Simulation
+st.sidebar.subheader("💸 Investment Simulator")
+start_date = st.sidebar.date_input("Choose start date", value=df['date'].min().date())
+investment_amount = st.sidebar.number_input("Investment amount (€)", min_value=100, value=1000)
+
+start_price = df[df['date'].dt.date == start_date]['close'].values
+end_price = df['close'].iloc[-1]
+
+if len(start_price) > 0:
+    gain = (end_price / start_price[0]) * investment_amount
+    st.metric(label="📈 Current Value", value=f"€{gain:,.2f}", delta=f"{(end_price - start_price[0])/start_price[0]*100:.2f}%")
+else:
+    st.warning("No price data for selected date.")
