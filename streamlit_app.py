@@ -13,7 +13,7 @@ import os
 
 
 
-# st.title("📈 Crypto Prices Dashboard")
+# st.title(" Crypto Prices Dashboard")
 
 # # Load data from database or CSV
 # load_dotenv()
@@ -28,23 +28,23 @@ import os
 # df["date"] = pd.to_datetime(df["date"])
 # df = df.sort_values("date")
 
-# # 🎯 Auswahlmenü für Spalten
+# #  Auswahlmenü für Spalten
 # options = ["open", "high", "low", "close", "volume"]
-# selected_options = st.multiselect("📌 Select metrics to display:", options, default=["open", "close"])
+# selected_options = st.multiselect("Select metrics to display:", options, default=["open", "close"])
 
-# # 📋 Zeige Tabelle
-# st.subheader("📋 Table: Crypto Prices Over Time")
+# #  Zeige Tabelle
+# st.subheader("Table: Crypto Prices Over Time")
 # st.dataframe(df)
 
-# # 📊 Zeige Diagramm
+# # Zeige Diagramm
 # if selected_options:
-#     st.subheader("📊 Line Chart: Selected Metrics Over Time")
+#     st.subheader(" Line Chart: Selected Metrics Over Time")
 #     st.line_chart(df.set_index("date")[selected_options])
 # else:
-#     st.warning("⚠️ Please select at least one metric.")
+#     st.warning("Please select at least one metric.")
 
 # # 📈 Statistiken
-# st.subheader("📊 Descriptive Statistics")
+# st.subheader("Descriptive Statistics")
 # st.write(df[selected_options].describe())
 
 
@@ -144,7 +144,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-# 💰 Investment Simulation
+# Investment Simulation
 st.sidebar.subheader("Investment Simulator")
 start_date = st.sidebar.date_input("Choose start date", value=df['date'].min().date())
 investment_amount = st.sidebar.number_input("Investment amount (€)", min_value=100, value=1000)
@@ -154,6 +154,6 @@ end_price = df['close'].iloc[-1]
 
 if len(start_price) > 0:
     gain = (end_price / start_price[0]) * investment_amount
-    st.metric(label="📈 Current Value", value=f"€{gain:,.2f}", delta=f"{(end_price - start_price[0])/start_price[0]*100:.2f}%")
+    st.metric(label="Current Value", value=f"€{gain:,.2f}", delta=f"{(end_price - start_price[0])/start_price[0]*100:.2f}%")
 else:
     st.warning("No price data for selected date.")
