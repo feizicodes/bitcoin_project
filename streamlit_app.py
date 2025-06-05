@@ -92,7 +92,7 @@ fig.update_layout(
     title="📈 Crypto Prices Over Time",
     xaxis=dict(title="Date"),
     yaxis=dict(title="Price (€)"),
-    yaxis2=dict(title="Volume", overlaying="y", side="right"),
+    yaxis2=dict(title="Volume (BTC)", overlaying="y", side="right"),
     legend=dict(x=0, y=1.1, orientation="h"),
     height=500
 )
