@@ -1,2 +1,6 @@
 .env
 secrets.toml
+# .gitignore
+package/
+*.zip
+
