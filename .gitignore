@@ -3,4 +3,5 @@ secrets.toml
 # .gitignore
 package/
 *.zip
+.streamlit/
 
