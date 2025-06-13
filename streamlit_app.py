@@ -254,6 +254,6 @@ else:
     st.warning("No price data for selected date.")
 
 # Bitcoin-News anzeigen
-st.subheader("Latest Bitcoin News")
+st.subheader("Bitcoin News")
 for _, row in df_news.iterrows():
     st.markdown(f"**{row['date']}**  \n[{row['title']}]({row['link']})", unsafe_allow_html=True)
